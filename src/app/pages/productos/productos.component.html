@@ -1,0 +1,49 @@
+<div class="container">
+<h1 class="mt-5">Listado de Productos</h1>
+<hr>
+
+<div class="row">
+    <div class="col d-grid gap-2 d-md-flex justify-content-md-end">
+        <button routerLink="/producto/nuevo" class="btn btn-primary"><i class="fa fa-plus"></i> Agregar</button>
+    </div>
+</div>
+
+<table   *ngIf="!cargando  && productos.length > 0" class="table table-success table-striped mt-3 animated fadeIn ">
+    <thead>
+        <tr>
+            <th scope="col">id Producto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Compania</th>
+            <th scope="col">Precio</th>
+
+            <th scope="col">tools</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let producto of productos; let i = index">
+
+        <td>{{producto.id_producto}}</td>
+        <td>{{ producto.productName }}</td>
+        <td>{{ producto.productcompany}}</td>
+        <td>{{ producto.productPrice }}</td>
+
+        <td>
+            <button class="btn btn-info " [routerLink]="['/producto', producto.id_producto]"><i class="fa fa-pen"></i></button>
+            <button  class="btn btn-danger ms-1" (click)="borrarproducto(producto, i)" ><i class="fa fa-trash"></i></button>
+        </td>
+        </tr>
+
+    </tbody>
+</table>
+<div *ngIf="!cargando && productos.length === 0" class="alert alert-danger text-center mt-3 animated fadeIn">
+  <h4 class="alert-heading">No hay registros</h4>
+  <p><i class="fa fa-exclamation  fa-2x"></i></p>
+
+</div>
+
+<div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn">
+  <h4 class="alert-heading">Cargando</h4>
+  <p><i class="fa fa-sync fa-spin fa-2x"></i></p>
+  <p class="mb-0"> Espere Por favor</p>
+</div>
+</div>

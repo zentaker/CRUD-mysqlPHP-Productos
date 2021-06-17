@@ -1,0 +1,71 @@
+<div class="container">
+<h1 class="mt-5">Producto</h1>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <div class="col d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-danger" routerLink="/productos">
+                <i class="fa fa-arrow-left"></i> Regresar
+            </button>
+        </div>
+    </div>
+
+
+</div>
+<br>
+
+<form  (ngSubmit)="guardar(f)"  #f="ngForm">
+
+  <div class="form-group row">
+    <label class="col-3 col-form-label">Mysql ID</label>
+    <div class="col cont">
+        <p class="id">{{ producto.id_producto}}</p>
+
+    </div>
+</div>
+<br>
+<div class="mb-3">
+    <input type="text" class="form-control" placeholder="nombre"
+
+        name="productName"
+        [(ngModel)]="producto.productName"
+        required minlength="2">
+</div>
+<div class="mb-3">
+    <input type="text" class="form-control" placeholder="compania"
+
+        name="productCompany"
+        [(ngModel)]="producto.productcompany"
+        required minlength="4">
+</div>
+<div class="mb-3">
+    <input type="number" class="form-control" placeholder="precio"
+
+        name="productPrice"
+        [(ngModel)]="producto.productPrice"
+        required minlength="4">
+</div>
+<div class="mb-3">
+    <input type="text" class="form-control" placeholder="imagen"
+    [(ngModel)]="producto.productImage1"
+    name="productImage1"
+
+        required minlength="4">
+</div>
+
+<button type="submit" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseAgregar">
+    Guardar
+</button>
+<button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAgregar" aria-expanded="false" aria-controls="collapseExample">
+    Cerrar
+</button>
+</form>
+
+
+
+
+
+
+
+</div>
